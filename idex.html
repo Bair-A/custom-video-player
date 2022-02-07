@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Custom video player</title>
+</head>
+<body>
+    <main class="main">
+        <div class="container">
+            <section class="video" id="video">
+                <div class="title-wrapper">
+                    <h2 class="section-title" data-i18='video'>Video</h2>
+                </div>
+                <div class="video__player-wrapper">
+                    <div class="video__player">
+                        <button class="video__play-icon"></button>
+                        <video poster="./assets/img/video-player.jpg" preload="auto">
+                            <source src="./assets/video/video.mp4"> 
+                        </video>
+                        <div class="control-panel">
+                            <button class="video__play-btn"></button>
+                            <div class="video__progress">
+                                <div class="video__progress-inner"> </div>
+                            </div>
+                            <button class="video__volume-btn"></button>
+                            <input class="video__volume-range" type="range" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>   
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer__gihub"> 
+                <div>©</div>
+                <div>2022</div>
+                <div class="footer__github-link"><a href="https://github.com/Bair-A" target="_blank">github</a> </div>
+            </div>
+
+            <div class="footer__rsschool"><a href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a> </div>
+
+            <ul class="footer__social-icons">
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="https://www.instagram.com/" target="_blank">
+                        <svg class="footer__icon">
+                            <use href="sprite.svg#instagram"></use>
+                        </svg> 
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="https://facebook.com/" target="_blank">
+                        <svg class="footer__icon">
+                            <use href="sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="https://twitter.com/" target="_blank">
+                        <svg class="footer__icon">
+                            <use href="sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="https://www.pinterest.com/" target="_blank">
+                        <svg class="footer__icon">
+                            <use href="sprite.svg#pinterest"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>    
+
+        </div><!-- container -->
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
