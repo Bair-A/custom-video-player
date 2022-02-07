@@ -6,8 +6,10 @@ const playBtn = document.querySelector('.video__play-btn');
 const volumeBtn = document.querySelector('.video__volume-btn');
 const videoProgress = document.querySelector('.video__progress');
 const videoInnerProgress = document.querySelector('.video__progress-inner');
-const volumeRange = document.querySelector('.video__volume-range');
+const videoVolume = document.querySelector('.video__volume-range');
+const videoVolumeInner = document.querySelector('.video__volume-range-inner');
 let musePushDown = false;
+let volumeMusePushDown = false;
 
 // code
 mainPlayBtn.addEventListener('click', play);
@@ -20,7 +22,10 @@ videoProgress.addEventListener('click', changeVideoProgress);
 videoProgress.addEventListener('mousemove', mousePushDownMove);
 videoProgress.addEventListener('mousedown', () => mousePushDown = true);
 videoProgress.addEventListener('mouseup', () => mousePushDown = false);
-volumeRange.addEventListener('input', changeVolume);
+videoVolume.addEventListener('click', changeVolume);
+videoVolume.addEventListener('mousemove', changeVolumeMove);
+videoVolume.addEventListener('mousedown', () => volumeMusePushDown = true);
+videoVolume.addEventListener('mouseup', () => volumeMusePushDown = false);
 
 // functions
 function play() {
@@ -56,11 +61,28 @@ function volumeOff() {
         video.volume = 0;
     } else {
         volumeBtn.classList.toggle('mute');
-        video.volume = volumeRange.value / 100;
+        video.volume = videoVolumeInner.offsetWidth / videoVolume.offsetWidth;
     }   
 }
 
-function changeVolume() {
-    video.volume = this.value / 100;
-    video.volume == 0 ? volumeBtn.classList.add('mute') : volumeBtn.classList.remove('mute');
+function changeVolume(event) {
+    video.volume = (event.offsetX / videoVolume.offsetWidth);
+    let volumeRange = (event.offsetX / videoVolume.offsetWidth) * 100;
+    videoVolumeInner.style.width = `${volumeRange}%`;
+    if (volumeRange < 3) {
+        video.volume = 0;
+        videoVolumeInner.style.width = 0;
+    }
+
+    video.volume == 0 ? volumeBtn.classList.add('mute') : volumeBtn.classList.remove('mute'); 
+
+    console.log(videoVolumeInner.style.width)
 }
+
+function changeVolumeMove () {
+    if (volumeMusePushDown) {
+        changeVolume();
+    }
+}
+
+
