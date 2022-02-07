@@ -187,11 +187,9 @@ h6 {
 }
 
 .video .video__player-wrapper {
-    
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 36px;
 }
 
 .video__player {
@@ -204,7 +202,6 @@ h6 {
 
 .video__player video {
    object-fit: cover;
-   padding: 0 20px;
 }
 
 .video__play-icon {
@@ -239,10 +236,11 @@ h6 {
 
 .control-panel {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--color-black);
     width: 100%;
+    padding: 10px 60px;
 }
 
 .video__play-btn {
@@ -289,10 +287,15 @@ h6 {
 }
 
 .video__volume-range {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 10px;
+    width: 15%;
+    height: 16px;
+    background-color: var(--color-white);
+}
+
+.video__volume-range-inner {
+    display: flex;
+    height: 100%;
+    width: 50%;
     background-color: var(--color-gold);
 }
 
